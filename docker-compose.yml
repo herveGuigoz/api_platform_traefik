@@ -103,6 +103,28 @@ services:
       traefik.enable: false
     <<: *network
 
+  client:
+    container_name: "client"
+    build:
+      context: ./client
+    volumes:
+      - ./client:/usr/src/client:rw,cached
+      - /usr/src/client/node_modules
+    extra_hosts:
+      - "localhost:127.0.0.1"
+    <<: *network
+    labels:
+      # Explicitly tell Traefik to expose this container
+      - traefik.enable=true
+      # Point d'entré web (http)
+      - traefik.http.routers.client-http-${DOMAIN}.entrypoints=web
+      # Point d'entré web-secure (https)
+      - traefik.http.routers.client-https-${DOMAIN}.entrypoints=websecure
+      # URL HTTP
+      - traefik.http.routers.client-http-${DOMAIN}.rule=HostRegexp(`{subdomains:(www.)?}${DOMAIN}`)
+      # URL HTTPS
+      - traefik.http.routers.client-https-${DOMAIN}.rule=HostRegexp(`{subdomains:(www.)?}${DOMAIN}`)
+      
 volumes:
   db-data: {}
 

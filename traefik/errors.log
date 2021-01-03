@@ -1,9 +1,0 @@
-time="2021-01-03T17:30:03Z" level=error msg="accept tcp [::]:443: use of closed network connection" entryPointName=websecure
-time="2021-01-03T17:30:04Z" level=error msg="Error while starting server: http: Server closed" entryPointName=websecure
-time="2021-01-03T17:30:04Z" level=error msg="Error while starting server: http: Server closed" entryPointName=websecure
-time="2021-01-03T17:30:03Z" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=web
-time="2021-01-03T17:30:04Z" level=error msg="Error while starting server: http: Server closed" entryPointName=web
-time="2021-01-03T17:30:04Z" level=error msg="Error while starting server: http: Server closed" entryPointName=web
-time="2021-01-03T17:30:04Z" level=error msg="close tcp [::]:443: use of closed network connection" entryPointName=websecure
-time="2021-01-03T17:30:04Z" level=error msg="close tcp [::]:80: use of closed network connection" entryPointName=web
-time="2021-01-03T17:30:04Z" level=error msg="Cannot connect to docker server context canceled" providerName=docker
